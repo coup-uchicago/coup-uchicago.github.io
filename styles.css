@@ -160,13 +160,15 @@ li > a { /*cannot have links that are two lines of text long */
   /*
   background-image : url("https://images.unsplash.com/photo-1777640116840-43f894545d20?q=80&w=839&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   */
-  background-image : url("./home/home-background-desktop.png");
+  background-image : url("./main-page-imgs/main-page-desktop.png");
   display : flex;
   align-items : center;
   justify-content : center;
 }
 
 .text {
+    /*position : relative;
+    top : 100vh;*/
   margin : 10px;
 }
 
