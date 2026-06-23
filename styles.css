@@ -7,6 +7,19 @@ body {
   margin : 0;
 }
 
+.quicksand-p {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rampart-one-regular {
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 header {
   position : sticky;
   top : 0;
@@ -21,7 +34,7 @@ nav {
   position : sticky;
   width : 100%;
   height : var(--nav-height);
-  background-color : red;
+  background-color : #fe9a20;
   z-index : 100;
 }
 
@@ -34,7 +47,7 @@ ul {
 }
 
 li {
-  background-color : yellow;
+  /*background-color : yellow;*/
   height : var(--nav-height);
   display : flexbox;
   align-items : column;
@@ -45,7 +58,7 @@ li {
   display : none;
   width : 100%;
   height : 100%;
-  background-color : lightcoral;
+  background-color : #990f4b;
   
     line-height : var(--nav-height); /*lines cannot be more than a line long*/
 
@@ -53,10 +66,13 @@ li {
 
 li > a { /*cannot have links that are two lines of text long */
   line-height : var(--nav-height);
+  color : white;
+  text-decoration : none;
 }
 /*wrap in @media {hover : hover}*/
 @media (hover: hover) {
   li:hover  {
+    background-color : #990f4b;
     .below {
       display : block;
     }
@@ -77,7 +93,7 @@ li > a { /*cannot have links that are two lines of text long */
 
 #logo-link  {
   position : absolute;
-  background-color : orange;
+  /*background-color : orange;*/
   width : var(--nav-height);
   height : var(--nav-height);
   cursor : pointer;
@@ -153,23 +169,26 @@ li > a { /*cannot have links that are two lines of text long */
 }
 
 /* background image */
-#bck-img {
+.bck-img {
   width : 100%;
   /*height : 300px;*/
   height : var(--rest-height-rel);
   /*
   background-image : url("https://images.unsplash.com/photo-1777640116840-43f894545d20?q=80&w=839&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   */
-  background-image : url("./main-page-imgs/main-page-desktop.png");
+  
   display : flex;
   align-items : center;
   justify-content : center;
 }
 
 .text {
-    /*position : relative;
-    top : 100vh;*/
-  margin : 10px;
+    text-align : center;
+  margin : 20px;
+}
+
+h1{
+    font-size : 3em;
 }
 
 footer { /*footer is currently sticky, fix*/
@@ -178,11 +197,8 @@ footer { /*footer is currently sticky, fix*/
   height : 60px; /*change depending on height of viewport*/
   /*height may not be a problem depending on how much content there is*/
 
-  background-color : green;
-}
-
-.events {
-  width : 100%;
-  height : 60px;
-  background-color : blue;
+  background-color : #a6a6a6;
+  display : flex;
+  align-items: center;
+  justify-content: center
 }

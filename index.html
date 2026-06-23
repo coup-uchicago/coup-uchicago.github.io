@@ -4,34 +4,43 @@
         <title>COUP Home</title>
     </head>
   <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="stylesheet" type="text/css" href="./styles-home.css">
+  <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Rampart+One&display=swap" rel="stylesheet">
    <body>
-        <header><a id="link-text" href=https://en.wikipedia.org/wiki/HTML class="text">COUP (link to homepage here)</a></header>
-        <nav>
-        <a id="logo-link" href=https://en.wikipedia.org/wiki/HTML></a>
-        <button id="hamburger"></button>
-        <ul id="menu-options">
-            <li class="nav-desktop"><a href = https://en.wikipedia.org/wiki/HTML>HTML</a>
-            <a class="below" href=https://en.wikipedia.org/wiki/HTML>one</a>
-            <a class ="below" href=https://en.wikipedia.org/wiki/HTML>one</a>
-            </li>
-            <li class="nav-desktop"><a href = https://en.wikipedia.org/wiki/CSS>CSS</a></li>
-        </ul>
+        <header><a id="link-text" href="#" class="text">COUP</a></header>
+        <nav class="quicksand-p">
+            <a id="logo-link" href="#">
+                <img src="./Logo.png" alt="COUP logo">
+            </a>
+            <button id="hamburger"></button>
+            <ul id="menu-options">
+                <li class="nav-desktop"><a href = "#events-display">Events</a>
+                <a class="below" href=https://en.wikipedia.org/wiki/HTML>one</a>
+                <a class ="below" href=https://en.wikipedia.org/wiki/HTML>one</a>
+                </li>
+                <li class="nav-desktop"><a href = https://en.wikipedia.org/wiki/CSS>CSS</a></li>
+            </ul>
         </nav>
-        <div id="bck-img">
+        <div class="bck-img" id="bck-home">
             <!--
             <img id="logo" src=https://images.unsplash.com/photo-1706720092267-9f45ba93e66c?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D alt="COUP logo">
             -->
             <img id="logo" src="./Logo.png" alt="COUP logo">
         </div>
-        <h1 class="text">Welcome to COUP</h1>
-        <p class="text">hello world</p>
-        <div class="events"></div>
-        <div class="events"></div>
-        <div class="events"></div>
-        <div class="events"></div>
-        <div class="events"></div>
-        <p>Follow us on Instagram for updates!</p>
-        <footer id="f"></footer>
-        <script src = "./scripts.js"></script>
+        <h1 class="text rampart-one-regular">Welcome to COUP</h1>
+        <p class="text quicksand-p">hello world</p>
+        <div id="events-display">
+            <div class="events" id="bnr"><a class="rampart-one-regular" href="https://en.wikipedia.org/wiki/HTML">Boos & Ribs</a></div>
+            <div class="events" id="kvuia"><a class="rampart-one-regular" href="https://en.wikipedia.org/wiki/HTML">Kuvia</a></div>
+            <div class="events" id="snowball"><a class="rampart-one-regular" href="https://en.wikipedia.org/wiki/HTML">Snowball</a></div>
+            <div class="events" id="sb"><a class="rampart-one-regular" href="https://en.wikipedia.org/wiki/HTML">Summer Breeze Carnival</a></div>
+            <div class="events" id="uncommon-nights"><a class="rampart-one-regular" href="https://en.wikipedia.org/wiki/HTML">Uncommon Nights / Pop-Up Picnic</a></div>
+        </div>
+        <p class="text quicksand-p">Follow us on <a href="https://www.instagram.com" target="_blank">Instagram</a> or subscribe to our <a href="https://lists.uchicago.edu/web/info/coup" target="_blank">listhost</a> for updates!</p>
+        <footer class="quicksand-p"><a href="#">Contact Us</a></footer>
+        <script src = "./scripts-navbar.js"></script>
     </body>
 </html>
