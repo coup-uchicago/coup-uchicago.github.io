@@ -1,5 +1,5 @@
 :root {
-  --nav-height : 50px;
+  --nav-height : 7vh;
   --rest-height-rel : calc(100vh - var(--nav-height));
 }
 
@@ -194,7 +194,7 @@ h1{
 footer { /*footer is currently sticky, fix*/
   /*position : fixed;*/
   width : 100%;
-  height : 60px; /*change depending on height of viewport*/
+  height : var(--nav-height); /*change depending on height of viewport*/
   /*height may not be a problem depending on how much content there is*/
 
   background-color : #a6a6a6;
