@@ -47,7 +47,7 @@ ul {
 }
 
 li {
-  /*background-color : yellow;*/
+  background-color : #fe9a20;
   height : var(--nav-height);
   display : flexbox;
   align-items : column;
@@ -101,7 +101,7 @@ li > a { /*cannot have links that are two lines of text long */
 }
 
 /*change appearance based on width */
-@media (width >= 350px){
+@media (width >= 480px){
   #logo-link {
     display : flex;
   }
@@ -124,7 +124,7 @@ li > a { /*cannot have links that are two lines of text long */
   }
 }
 
-@media (width <= 350px){
+@media (width <= 480px){
   #logo-link {
     display : none;
   }
@@ -183,16 +183,20 @@ li > a { /*cannot have links that are two lines of text long */
 }
 
 .text {
-    text-align : center;
-  margin : 20px;
+  text-align : center;
+  font-size : clamp(1rem, 2vh, 2rem);
 }
 
-h1{
-    font-size : 3em;
+.padding {
+  padding : 20px;
 }
 
-footer { /*footer is currently sticky, fix*/
-  /*position : fixed;*/
+h1 {
+  text-align : center;
+  font-size : clamp(1.5rem,7vw,3rem);
+}
+
+footer {
   width : 100%;
   height : var(--nav-height); /*change depending on height of viewport*/
   /*height may not be a problem depending on how much content there is*/
