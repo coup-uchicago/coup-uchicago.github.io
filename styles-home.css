@@ -1,5 +1,6 @@
 #bck-home{
     background-image : url("./main-page-imgs/main-page-desktop.png");
+    background-size : 100%;
 }
 
 .events {
@@ -10,9 +11,7 @@
   display : flex;
   align-items : center;
   justify-items : center;
-  a {
-    color : white;
-  }
+  background-size : 100%;
 }
 
 .events > a {
@@ -20,6 +19,7 @@
     margin : auto;
     text-align : center;
     padding : 40px;
+    color : white;
 }
 
 #kuvia {
