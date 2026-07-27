@@ -18,6 +18,15 @@ function changeNavbar() {
   windowWidth = window.innerWidth;
 }
 
+function closeDropdown(li) {
+    const activeDropdown = document.querySelectorAll(".dropdown-active");
+    activeDropdown.forEach((item) => {
+        item.remove();
+    });
+    li.style.backgroundColor = orange;
+    li.style.zIndex = "auto";
+}
+
 //resize navbar
 window.addEventListener("resize", changeNavbar);
 
@@ -30,6 +39,11 @@ button.addEventListener("click", () => {
   if (menu.style.display == `flex`) {
     menu.style.display = `none`;
   } else {
+    const openedDropdown = document.querySelector(".open");
+    if (openedDropdown !== null){
+        closeDropdown(openedDropdown);
+        openedDropdown.classList.remove("open");
+    }
     menu.style.display = "flex";
   }
 });
@@ -45,6 +59,7 @@ if(!canHover.matches){
                 if (li.tagName == "SPAN"){
                     li = li.parentElement;
                 }
+                console.log(li);
                 
                 //toggle dropdown
                 if(li.classList.contains("open")){
@@ -74,12 +89,7 @@ if(!canHover.matches){
                     li.style.backgroundColor = magenta;
                     li.style.zIndex = "90";
                 } else {
-                    const activeDropdown = document.querySelectorAll(".dropdown-active");
-                    activeDropdown.forEach((item) => {
-                        item.remove();
-                    });
-                    li.style.backgroundColor = orange;
-                    li.style.zIndex = "auto";
+                    closeDropdown(li);
                 }
             });
         }
