@@ -23,22 +23,27 @@
 }
 
 #kuvia {
+    background-color: #2caee6;
     background-image : url("./main-page-imgs/kuvia-banner.png")
 }
 
 #snowball {
+    background-color : #473168;
     background-image: url("./main-page-imgs/snowball-banner.png")
 }
 
 #bnr {
+    background-color: #f17a10;
     background-image: url("./main-page-imgs/bnr-banner.png")
 }
 
 #sb {
+    background-color: #0e8541;
     background-image: url("./main-page-imgs/summer-breeze-banner.png")
 }
 
 #uncommon-nights {
+    background-color: #ab1035;
     background-image: url("./main-page-imgs/uncommon-nights-banner.png")
 }
 
