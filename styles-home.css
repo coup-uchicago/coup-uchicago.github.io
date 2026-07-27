@@ -7,11 +7,20 @@
   width : 100%;
   /* height : 20vh; */
   height : fit-content;
-  background-color : blue;
   display : flex;
   align-items : center;
   justify-items : center;
-  background-size : 100%;
+}
+
+@media(width >= 480){
+    .events {
+        background-size : 100%;
+    }
+}
+@media(width < 480px){
+    .events {
+        background-size : 225%;
+    }
 }
 
 .events > a {
