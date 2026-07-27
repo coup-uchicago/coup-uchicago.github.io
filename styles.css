@@ -59,12 +59,10 @@ li {
   width : 100%;
   height : 100%;
   background-color : #990f4b;
-  
-    line-height : var(--nav-height); /*lines cannot be more than a line long*/
-
+  line-height : var(--nav-height); /*lines cannot be more than a line long*/
 }
 
-li > a { /*cannot have links that are two lines of text long */
+li > a, li > span { /*cannot have links that are two lines of text long */
   line-height : var(--nav-height);
   color : white;
   text-decoration : none;
