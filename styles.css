@@ -51,7 +51,6 @@ li {
   height : var(--nav-height);
   display : flexbox;
   align-items : column;
-  /*justify-content : center;*/
   text-align : center;
 }
 .below {

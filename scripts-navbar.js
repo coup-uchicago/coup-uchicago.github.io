@@ -4,6 +4,9 @@ button = document.getElementById("hamburger");
 menu = document.getElementById("menu-options");
 var windowWidth;
 
+const orange = "#fe9a20";
+const magenta = "#990f4b";
+
 function changeNavbar() {
   if (window.innerWidth != windowWidth && window.innerWidth >= 480) {
     menu.style.display = `flex`;
@@ -34,30 +37,49 @@ button.addEventListener("click", () => {
 //if "events" clicked, opens dropdown (for devices with no hover)
 canHover = window.matchMedia("(hover : hover)");
 if(!canHover.matches){
-    const navItems = document.querySelectorAll(".nav-desktop");
+    const navItems = document.querySelectorAll(".nav-item");
     navItems.forEach((navItem) => {
-        if (navItem.children.length > 1){   //target only dropdowns
+        if(navItem.children.length > 1){
             navItem.addEventListener("click", (event) => {
                 var li = event.target;  //the selected li
                 if (li.tagName == "SPAN"){
                     li = li.parentElement;
                 }
+                
+                //toggle dropdown
+                if(li.classList.contains("open")){
+                    li.classList.remove("open");
+                } else {
+                    li.classList.add("open");
+                }
 
                 const children = li.querySelectorAll(".below");
+                var currLi = li;
+                if(li.classList.contains("open")){  //add all child <a>s as their own <li>
+                    var newLi;
+                    var duplicateLink;  //link to put in new li
+                    children.forEach((child) => {
+                        newLi = document.createElement("li");
 
-                //close dropdown
-                if (children[0].style.display == "block"){
-                    children.forEach((child) => {
-                        child.style.display = "none";  
+                        duplicateLink = child.cloneNode("true");
+                        duplicateLink.classList.remove("below");
+
+                        newLi.appendChild(duplicateLink);
+                        newLi.style.backgroundColor = magenta;
+                        newLi.className = "nav-item dropdown-active";
+                        
+                        currLi.after(newLi);
+                        currLi = newLi;
                     });
-                    li.style.backgroundColor = "#fe9a20";
+                    li.style.backgroundColor = magenta;
+                    li.style.zIndex = "90";
+                } else {
+                    const activeDropdown = document.querySelectorAll(".dropdown-active");
+                    activeDropdown.forEach((item) => {
+                        item.remove();
+                    });
+                    li.style.backgroundColor = orange;
                     li.style.zIndex = "auto";
-                } else {    //open dropdown
-                    children.forEach((child) => {
-                        child.style.display = "block";  
-                    });
-                    li.style.backgroundColor = "#990f4b";
-                    li.style.zIndex = "90";   
                 }
             });
         }
