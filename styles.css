@@ -82,7 +82,7 @@ li > a { /*cannot have links that are two lines of text long */
 
 #hamburger {
   position : absolute;
-  background-color : blue;
+  background-color : #fe9a20;
   border : none;
   width : var(--nav-height);
   height : var(--nav-height);

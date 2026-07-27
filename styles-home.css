@@ -10,6 +10,9 @@
   display : flex;
   align-items : center;
   justify-items : center;
+  a {
+    color : white;
+  }
 }
 
 .events > a {
@@ -20,36 +23,23 @@
 }
 
 #kuvia {
-    background-image : url("./kuvia/imgs/kuvia-crown.jpg");
-    background-position : center center;
+    background-image : url("./main-page-imgs/kuvia-banner.png")
 }
 
 #snowball {
-    background-image : url("./snowball/imgs/snowball-2025.jpg");
-    background-position : center center;
+    background-image: url("./main-page-imgs/snowball-banner.png")
 }
 
 #bnr {
-    background-color : orange;
+    background-image: url("./main-page-imgs/bnr-banner.png")
 }
-/*
-#kuvia {
-    background-color : blue;
-    /*
-    https://unsplash.com/photos/trees-on-snow-covered-field-during-sunset--MrW8N9zWV4 or image in Crown
-    
-}
-
-#snowball {
-    background-color : pink;
-}*/
 
 #sb {
-    background-color : green;
+    background-image: url("./main-page-imgs/summer-breeze-banner.png")
 }
 
 #uncommon-nights {
-    background-color : burlywood;
+    background-image: url("./main-page-imgs/uncommon-nights-banner.png")
 }
 
 #contact-us {
