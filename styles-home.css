@@ -24,7 +24,7 @@
 }
 
 .events > a {
-    font-size : clamp(1rem,5vw,2rem);
+    font-size : clamp(1.5rem,5vh,2rem);
     margin : auto;
     text-align : center;
     padding : 40px;

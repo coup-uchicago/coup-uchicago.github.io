@@ -59,12 +59,25 @@ if(!canHover.matches){
                 if (li.tagName == "SPAN"){
                     li = li.parentElement;
                 }
-                console.log(li);
-                
+                //console.log(li);
+
                 //toggle dropdown
                 if(li.classList.contains("open")){
                     li.classList.remove("open");
                 } else {
+                    //close previously opened dropdowns (untested)
+                    const navItems = document.querySelectorAll(".nav-item");
+                    navItems.forEach((navItem) => {
+                        if (navItem.classList.contains("open")){
+                            navItem.style.backgroundColor = orange;
+                            navItem.style.zIndex = "auto";
+                            navItem.classList.remove("open");
+                        }
+                    });
+                    const activeDropdown = document.querySelectorAll(".dropdown-active");
+                    activeDropdown.forEach((item) => {
+                        item.remove();
+                    });
                     li.classList.add("open");
                 }
 

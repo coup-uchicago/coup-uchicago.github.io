@@ -194,7 +194,7 @@ li > a, li > span { /*cannot have links that are two lines of text long */
 
 h1 {
   text-align : center;
-  font-size : clamp(1.5rem,7vw,3rem);
+  font-size : clamp(1.5rem,5vh,2rem);
 }
 
 footer {
