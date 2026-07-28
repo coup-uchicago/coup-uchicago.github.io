@@ -116,7 +116,7 @@ if(!canHover.matches){
         }
         
     });
-    window.addEventListener("click", (event) => {   //close when tapping outside the menu
+    /*window.addEventListener("click", (event) => {   //close when tapping outside the menu
         if(!event.target.parentElement.classList.contains("below") 
             && !event.target.parentElement.classList.contains("open")
             && event.target.parentElement != button){
@@ -126,5 +126,5 @@ if(!canHover.matches){
                 menu.style.display = "none";
             }
         }
-    });
+    });*/
 }
