@@ -1,3 +1,5 @@
+/**Need a function to move images so that they don't overflow */
+/**need a function so that when in column navbar form, navbar is shortened/divs display none when menu not clicked */
 button = document.getElementById("hamburger");
 menu = document.getElementById("menu-options");
 var windowWidth;
@@ -6,7 +8,6 @@ const orange = "#fe9a20";
 const magenta = "#990f4b";
 
 function changeNavbar() {
-  closeDropdown();
   if (window.innerWidth != windowWidth && window.innerWidth >= 480) {
     menu.style.display = `flex`;
     button.style.display = `none`;
@@ -17,26 +18,13 @@ function changeNavbar() {
   windowWidth = window.innerWidth;
 }
 
-function closeDropdown(lastOpen = null) {   //only works for mobile dropdown
-    if (!lastOpen){
-        lastOpen = document.querySelector(".open");
-    }
-    if(lastOpen){
-        //remove li elements (hamburger version)
-        const activeDropdownHam = document.querySelectorAll(".dropdown-active");
-        activeDropdownHam.forEach((item) => {
-            item.remove();
-        });
-
-        const activeDropdown = lastOpen.querySelectorAll(".below")
-        activeDropdown.forEach((item) => {
-            item.style.display = "none";
-        });
-
-        lastOpen.style.backgroundColor = orange;
-        lastOpen.style.zIndex = "auto";
-        lastOpen.classList.remove("open");
-    }
+function closeDropdown(li) {
+    const activeDropdown = document.querySelectorAll(".dropdown-active");
+    activeDropdown.forEach((item) => {
+        item.remove();
+    });
+    li.style.backgroundColor = orange;
+    li.style.zIndex = "auto";
 }
 
 //resize navbar
@@ -51,7 +39,11 @@ button.addEventListener("click", () => {
   if (menu.style.display == `flex`) {
     menu.style.display = `none`;
   } else {
-    closeDropdown();
+    const openedDropdown = document.querySelector(".open");
+    if (openedDropdown !== null){
+        closeDropdown(openedDropdown);
+        openedDropdown.classList.remove("open");
+    }
     menu.style.display = "flex";
   }
 });
@@ -67,64 +59,52 @@ if(!canHover.matches){
                 if (li.tagName == "SPAN"){
                     li = li.parentElement;
                 }
+                //console.log(li);
 
                 //toggle dropdown
                 if(li.classList.contains("open")){
                     li.classList.remove("open");
                 } else {
-                    closeDropdown();
+                    //close previously opened dropdowns (untested)
+                    const navItems = document.querySelectorAll(".nav-item");
+                    navItems.forEach((navItem) => {
+                        if (navItem.classList.contains("open")){
+                            navItem.style.backgroundColor = orange;
+                            navItem.style.zIndex = "auto";
+                            navItem.classList.remove("open");
+                        }
+                    });
+                    const activeDropdown = document.querySelectorAll(".dropdown-active");
+                    activeDropdown.forEach((item) => {
+                        item.remove();
+                    });
                     li.classList.add("open");
                 }
 
                 const children = li.querySelectorAll(".below");
-                if (window.innerWidth < 480){   //for hamburger version of dropdown
-                    var currLi = li;
-                    if(li.classList.contains("open")){  //add all child <a>s as their own <li>
-                        var newLi;
-                        var duplicateLink;  //link to put in new li
-                        children.forEach((child) => {
-                            newLi = document.createElement("li");
+                var currLi = li;
+                if(li.classList.contains("open")){  //add all child <a>s as their own <li>
+                    var newLi;
+                    var duplicateLink;  //link to put in new li
+                    children.forEach((child) => {
+                        newLi = document.createElement("li");
 
-                            duplicateLink = child.cloneNode("true");
-                            duplicateLink.classList.remove("below");
-                            duplicateLink.style.display = "block";
+                        duplicateLink = child.cloneNode("true");
+                        duplicateLink.classList.remove("below");
 
-                            newLi.appendChild(duplicateLink);
-                            newLi.style.backgroundColor = magenta;
-                            newLi.className = "nav-item dropdown-active";
-                            
-                            currLi.after(newLi);
-                            currLi = newLi;
-                        });
-                        li.style.backgroundColor = magenta;
-                        li.style.zIndex = "90";
-                    } else {
-                        closeDropdown(li);
-                    }
+                        newLi.appendChild(duplicateLink);
+                        newLi.style.backgroundColor = magenta;
+                        newLi.className = "nav-item dropdown-active";
+                        
+                        currLi.after(newLi);
+                        currLi = newLi;
+                    });
+                    li.style.backgroundColor = magenta;
+                    li.style.zIndex = "90";
                 } else {
-                    if(li.classList.contains("open")){
-                        children.forEach((child) => {
-                            child.style.display = "block";
-                        });
-                        li.style.backgroundColor = magenta;
-                        li.style.zIndex = "90";
-                    } else {
-                        closeDropdown(li);
-                    }
+                    closeDropdown(li);
                 }
             });
-        }
-        
-    });
-    window.addEventListener("click", (event) => {   //close when tapping outside the menu
-        if(!event.target.parentElement.classList.contains("below") 
-            && !event.target.parentElement.classList.contains("open")
-            && event.target.parentElement != button){
-
-            closeDropdown();
-            if(window.innerWidth < 480){
-                menu.style.display = "none";
-            }
         }
     });
 }
