@@ -69,7 +69,7 @@ nav {
 }
 
 @media (hover : hover){
-    nav > li:hover {
+    .nav-item:hover {
         background-color: #990f4b;
         z-index: 90;
         .below {
@@ -132,6 +132,9 @@ nav {
   }
   nav {
     top : 2em;
+  }
+  .below {
+    display : none !important;
   }
   #hamburger {
     display : flex;
