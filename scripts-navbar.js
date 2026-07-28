@@ -48,7 +48,7 @@ button.addEventListener("click", () => {
 
 //if "events" clicked, opens dropdown (for devices with no hover)
 canHover = window.matchMedia("(hover : hover)");
-if(!canHover.matches && window.innerWidth <= 480){
+if(!canHover.matches){
     const navItems = document.querySelectorAll(".nav-item");
     navItems.forEach((navItem) => {
         if(navItem.children.length > 1){
@@ -133,4 +133,4 @@ if(!canHover.matches && window.innerWidth <= 480){
             }
         }
     });
-}
+}//add AbortController to kill event listeners and add new ones on resize, should the navbar change
