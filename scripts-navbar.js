@@ -58,7 +58,7 @@ button.addEventListener("click", () => {
 
 //if "events" clicked, opens dropdown (for devices with no hover)
 canHover = window.matchMedia("(hover : hover)");
-if(!canHover.matches){
+if(!canHover.matches && window.innerWidth < 480){
     const navItems = document.querySelectorAll(".nav-item");
     navItems.forEach((navItem) => {
         if(navItem.children.length > 1){
@@ -77,7 +77,8 @@ if(!canHover.matches){
                 }
 
                 const children = li.querySelectorAll(".below");
-                if (window.innerWidth < 480){   //for hamburger version of dropdown
+                console.log(button.style.display);
+                //if (window.innerWidth < 480){   //for hamburger version of dropdown
                     var currLi = li;
                     if(li.classList.contains("open")){  //add all child <a>s as their own <li>
                         var newLi;
@@ -101,7 +102,9 @@ if(!canHover.matches){
                     } else {
                         closeDropdown(li);
                     }
-                } else {
+                //} 
+                
+                /*else {
                     if(li.classList.contains("open")){
                         children.forEach((child) => {
                             child.style.display = "block";
@@ -111,7 +114,7 @@ if(!canHover.matches){
                     } else {
                         closeDropdown(li);
                     }
-                }
+                }*/
             });
         }
         
