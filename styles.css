@@ -66,8 +66,10 @@ nav {
         color : white;
         text-decoration : none;
     }
+}
 
-    li:focus, li:hover, li:active  {
+@media (hover : hover){
+    nav > li:hover {
         background-color: #990f4b;
         z-index: 90;
         .below {
