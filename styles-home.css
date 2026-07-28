@@ -19,7 +19,7 @@
 }
 @media(width < 480px){
     .events {
-        background-size : 375%;
+        background-size : 225%;
     }
 }
 
