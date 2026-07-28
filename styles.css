@@ -66,6 +66,7 @@ nav {
         color : white;
         text-decoration : none;
     }
+
 }
 
 @media (hover : hover){
@@ -123,6 +124,15 @@ nav {
   }
   header {
     display : none;
+  }
+  @media (hover : none){
+    .nav-item.open {
+        background-color: #990f4b;
+        z-index: 90;
+        .below {
+            display : block;
+        }
+    }
   }
 }
 

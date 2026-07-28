@@ -52,57 +52,85 @@ if(!canHover.matches && window.innerWidth <= 480){
     const navItems = document.querySelectorAll(".nav-item");
     navItems.forEach((navItem) => {
         if(navItem.children.length > 1){
-            navItem.addEventListener("click", (event) => {
-                var li = event.target;  //the selected li
-                if (li.tagName == "SPAN"){
-                    li = li.parentElement;
-                }
+            if (window.innerWidth <= 480){
+                navItem.addEventListener("click", (event) => {
+                    var li = event.target;  //the selected li
+                    if (li.tagName == "SPAN"){
+                        li = li.parentElement;
+                    }
 
-                //toggle dropdown
-                if(li.classList.contains("open")){
-                    li.classList.remove("open");
-                } else {
-                    //close previously opened dropdowns (untested)
-                    /*const navItems = document.querySelectorAll(".nav-item");
-                    navItems.forEach((navItem) => {
-                        if (navItem.classList.contains("open")){
-                            navItem.style.backgroundColor = orange;
-                            navItem.style.zIndex = "auto";
-                            navItem.classList.remove("open");
-                        }
-                    });
-                    const activeDropdown = document.querySelectorAll(".dropdown-active");
-                    activeDropdown.forEach((item) => {
-                        item.remove();
-                    });*/
-                    li.classList.add("open");
-                }
+                    //toggle dropdown
+                    if(li.classList.contains("open")){
+                        li.classList.remove("open");
+                    } else {
+                        //close previously opened dropdowns (untested)
+                        /*const navItems = document.querySelectorAll(".nav-item");
+                        navItems.forEach((navItem) => {
+                            if (navItem.classList.contains("open")){
+                                navItem.style.backgroundColor = orange;
+                                navItem.style.zIndex = "auto";
+                                navItem.classList.remove("open");
+                            }
+                        });
+                        const activeDropdown = document.querySelectorAll(".dropdown-active");
+                        activeDropdown.forEach((item) => {
+                            item.remove();
+                        });*/
+                        li.classList.add("open");
+                    }
 
-                const children = li.querySelectorAll(".below");
-                var currLi = li;
-                if(li.classList.contains("open")){  //add all child <a>s as their own <li>
-                    var newLi;
-                    var duplicateLink;  //link to put in new li
-                    children.forEach((child) => {
-                        newLi = document.createElement("li");
+                    const children = li.querySelectorAll(".below");
+                    var currLi = li;
+                    if(li.classList.contains("open")){  //add all child <a>s as their own <li>
+                        var newLi;
+                        var duplicateLink;  //link to put in new li
+                        children.forEach((child) => {
+                            newLi = document.createElement("li");
 
-                        duplicateLink = child.cloneNode("true");
-                        duplicateLink.classList.remove("below");
-                        duplicateLink.style.display = "block";
+                            duplicateLink = child.cloneNode("true");
+                            duplicateLink.classList.remove("below");
+                            duplicateLink.style.display = "block";
 
-                        newLi.appendChild(duplicateLink);
-                        newLi.style.backgroundColor = magenta;
-                        newLi.className = "nav-item dropdown-active";
+                            newLi.appendChild(duplicateLink);
+                            newLi.style.backgroundColor = magenta;
+                            newLi.className = "nav-item dropdown-active";
 
-                        currLi.after(newLi);
-                        currLi = newLi;
-                    });
-                    li.style.backgroundColor = magenta;
-                    li.style.zIndex = "90";
-                } else {
-                    closeDropdown(li);
-                }
-            });
+                            currLi.after(newLi);
+                            currLi = newLi;
+                        });
+                        li.style.backgroundColor = magenta;
+                        li.style.zIndex = "90";
+                    } else {
+                        closeDropdown(li);
+                    }
+                });
+            } else {
+                navItem.addEventListener("click", (event) => {
+                    var li = event.target;  //the selected li
+                    if (li.tagName == "SPAN"){
+                        li = li.parentElement;
+                    }
+
+                    if(li.classList.contains("open")){
+                        li.classList.remove("open");
+                    } else {
+                        //close previously opened dropdowns (untested)
+                        /*const navItems = document.querySelectorAll(".nav-item");
+                        navItems.forEach((navItem) => {
+                            if (navItem.classList.contains("open")){
+                                navItem.style.backgroundColor = orange;
+                                navItem.style.zIndex = "auto";
+                                navItem.classList.remove("open");
+                            }
+                        });
+                        const activeDropdown = document.querySelectorAll(".dropdown-active");
+                        activeDropdown.forEach((item) => {
+                            item.remove();
+                        });*/
+                        li.classList.add("open");
+                    }
+                });
+            }
         }
     });
 }
