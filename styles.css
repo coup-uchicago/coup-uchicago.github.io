@@ -65,18 +65,9 @@ nav {
         line-height : var(--nav-height);
         color : white;
         text-decoration : none;
+        cursor : pointer;
     }
 
-}
-
-@media (hover : hover){
-    .nav-item:hover {
-        background-color: #990f4b;
-        z-index: 90;
-        .below {
-            display : block;
-        }
-    }
 }
 
 #hamburger {
@@ -127,6 +118,15 @@ nav {
   }
   @media (hover : none){
     .nav-item.open {
+        background-color: #990f4b;
+        z-index: 90;
+        .below {
+            display : block;
+        }
+    }
+  }
+  @media (hover : hover){
+    .nav-item:hover {
         background-color: #990f4b;
         z-index: 90;
         .below {

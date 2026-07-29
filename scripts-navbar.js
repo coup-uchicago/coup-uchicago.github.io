@@ -1,34 +1,54 @@
 button = document.getElementById("hamburger");
 menu = document.getElementById("menu-options");
 var windowWidth;
+var controller; //AbortController object used to remove event listeners later
 
 const orange = "#fe9a20";
 const magenta = "#990f4b";
 
 function changeNavbar() {
-  if (window.innerWidth != windowWidth && window.innerWidth >= 480) {
-    menu.style.display = `flex`;
-    button.style.display = `none`;
-  } else if (window.innerWidth != windowWidth && window.innerWidth < 480) {
-    button.style.display = `flex`;
-    menu.style.display = `none`;
-  }
+  if (window.innerWidth != windowWidth) {   //detect if there has actually been a change
+    if (window.innerWidth >= 480){
+        menu.style.display = `flex`;
+        button.style.display = `none`;
+    } else {
+        button.style.display = `flex`;
+        menu.style.display = `none`;
+    }
+    if ((window.innerWidth <= 480 && windowWidth > 480) || (window.innerWidth > 480 && windowWidth <= 480)){
+        try {
+            controller.abort();
+        } catch {}
+        dropdownNoHover();
+        closeDropdown();
+        const openDropdown = document.querySelector(".open");
+        if (openDropdown){
+            openDropdown.classList.remove("open");
+        }
+    }
+  } 
   windowWidth = window.innerWidth;
 }
 
-function closeDropdown(li) {
+function closeDropdown(li = null) { //does not toggle open
+    if (li === null){
+        li = document.querySelector(".open");
+    }
     const activeDropdown = document.querySelectorAll(".dropdown-active");
     activeDropdown.forEach((item) => {
         item.remove();
     });
-    li.style.backgroundColor = orange;
-    li.style.zIndex = "auto";
+    try {   //will not work if li is still null (nothing open)
+        li.style.backgroundColor = orange;
+        li.style.zIndex = "auto";
+    } catch {}
 }
 
 //resize navbar
 window.addEventListener("resize", changeNavbar);
 
 window.addEventListener("load", () => {
+    dropdownNoHover();
     windowWidth = window.innerWidth;
 });
 
@@ -47,12 +67,14 @@ button.addEventListener("click", () => {
 });
 
 //if "events" clicked, opens dropdown (for devices with no hover)
-canHover = window.matchMedia("(hover : hover)");
-if(!canHover.matches){
-    const navItems = document.querySelectorAll(".nav-item");
-    navItems.forEach((navItem) => {
-        if(navItem.children.length > 1){
-            if (window.innerWidth <= 480){
+function dropdownNoHover() {
+    canHover = window.matchMedia("(hover : hover)");
+    if(window.innerWidth <= 480){   //if hamburger apparent
+        const navItems = document.querySelectorAll(".nav-item");
+        controller = new AbortController();
+        const { signal } = controller;
+        navItems.forEach((navItem) => {
+            if(navItem.children.length > 1){
                 navItem.addEventListener("click", (event) => {
                     var li = event.target;  //the selected li
                     if (li.tagName == "SPAN"){
@@ -103,8 +125,15 @@ if(!canHover.matches){
                     } else {
                         closeDropdown(li);
                     }
-                });
-            } else {
+                }, { signal });
+            } 
+        });
+    } else if (!canHover.matches) { //if hamburger apparent but a touchscreen
+        const navItems = document.querySelectorAll(".nav-item");
+        controller = new AbortController();
+        const { signal } = controller;
+        navItems.forEach((navItem) => {
+            if(navItem.children.length > 1){
                 navItem.addEventListener("click", (event) => {
                     var li = event.target;  //the selected li
                     if (li.tagName == "SPAN"){
@@ -129,8 +158,8 @@ if(!canHover.matches){
                         });*/
                         li.classList.add("open");
                     }
-                });
+                }, { signal });
             }
-        }
-    });
-}//add AbortController to kill event listeners and add new ones on resize, should the navbar change
+        });
+    }
+}
