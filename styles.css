@@ -5,6 +5,13 @@
 
 body {
   margin : 0;
+  display : flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+main {
+    flex-grow: 1;
 }
 
 .quicksand-p {
@@ -111,7 +118,7 @@ nav {
     flex-direction : row;
   }
   li {
-    width : 80px;
+    width : 10vw;
   }
   header {
     display : none;
