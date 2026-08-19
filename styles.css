@@ -112,7 +112,7 @@ nav {
   #hamburger {
     display : none;
   }
-  ul {
+  nav > ul {
     display : flex;
     top : 0px;
     flex-direction : row;
@@ -156,7 +156,7 @@ nav {
   #hamburger {
     display : flex;
   }
-  ul {
+  nav > ul {
     display : none;
     top : var(--nav-height);
     flex-direction : column;

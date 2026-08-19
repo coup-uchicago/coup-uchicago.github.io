@@ -1,0 +1,28 @@
+#main-img {
+    display : block;
+    margin : auto;
+    max-height : 75vh;
+    width : auto;
+    max-width : 90%;
+}
+
+#links {
+    display: list-item;
+    position : relative;
+    top : -0.5rem;
+}
+
+#links > li{
+    position : relative;
+    left : 1rem;
+    width : 100%;
+    padding-top: 0.5rem;
+    
+}
+
+.text {
+  text-align : left;
+  font-size : clamp(1rem, 2vh, 2rem);
+  width : 80%;
+  padding-left : 10%;
+}
