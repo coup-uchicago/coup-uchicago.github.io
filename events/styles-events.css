@@ -1,4 +1,4 @@
-#main-img {
+.imgs {
     display : block;
     margin : auto;
     max-height : 75vh;
@@ -7,7 +7,6 @@
 }
 
 #links {
-    display: list-item;
     position : relative;
     top : -0.5rem;
 }
@@ -17,7 +16,6 @@
     left : 1rem;
     width : 100%;
     padding-top: 0.5rem;
-    
 }
 
 .text {
@@ -25,4 +23,41 @@
   font-size : clamp(1rem, 2vh, 2rem);
   width : 80%;
   padding-left : 10%;
+}
+
+.caption {
+    text-align : center;
+    position : relative;
+    top : -0.75rem;
+    font-style: italic;
+}
+
+.carousel {
+  display : flex;
+  align-items : center;
+  justify-content : center;
+
+  width : fit-content;
+  margin-left : auto;
+  margin-right : auto;
+}
+
+.carousel-imgs {
+    width : auto;
+    max-width : 80%;
+}
+
+@media (width > 480px){
+    .carousel-imgs.square {
+        width : auto;
+        max-width : 75vh;
+    }
+}
+
+
+.carousel-left, .carousel-right {
+    border : none;
+    display : fit-content;
+    background-color: white;
+    cursor : pointer;
 }
