@@ -42,18 +42,21 @@
   margin-right : auto;
 }
 
+/*for width <= 480px*/
 .carousel-imgs {
     width : auto;
     max-width : 80%;
 }
 
 @media (width > 480px){
-    .carousel-imgs.square {
+    .carousel-imgs {
+        max-height : 80vh;
+    }
+    /*.carousel-imgs.square { delete square class from bnr?
         width : auto;
         max-width : 75vh;
-    }
+    }*/
 }
-
 
 .carousel-left, .carousel-right {
     border : none;
