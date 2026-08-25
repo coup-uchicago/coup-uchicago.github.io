@@ -11,7 +11,7 @@
     top : -0.5rem;
 }
 
-#links > li{
+#list > li{
     position : relative;
     left : 1rem;
     width : 100%;
@@ -23,6 +23,10 @@
   font-size : clamp(1rem, 2vh, 2rem);
   width : 80%;
   padding-left : 10%;
+}
+
+.center {
+    text-align : center;
 }
 
 .caption {
@@ -52,10 +56,6 @@
     .carousel-imgs {
         max-height : 80vh;
     }
-    /*.carousel-imgs.square { delete square class from bnr?
-        width : auto;
-        max-width : 75vh;
-    }*/
 }
 
 .carousel-left, .carousel-right {

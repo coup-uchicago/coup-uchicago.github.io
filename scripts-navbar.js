@@ -1,10 +1,12 @@
 button = document.getElementById("hamburger");
 menu = document.getElementById("menu-options");
+const currEvent = document.getElementById("current-event");
 var windowWidth;
 var controller; //AbortController object used to remove event listeners later
 
 const orange = "#fe9a20";
 const magenta = "#990f4b";
+const currEventText = "Boos n Ribs 2026";
 
 function changeNavbar() {
   if (window.innerWidth != windowWidth) {   //detect if there has actually been a change
@@ -50,6 +52,8 @@ window.addEventListener("resize", changeNavbar);
 window.addEventListener("load", () => {
     dropdownNoHover();
     windowWidth = window.innerWidth;
+
+    currEvent.innerText = currEventText;
 });
 
 //click hamburger button (if collapsed)
@@ -111,7 +115,7 @@ function dropdownNoHover() {
 
                             duplicateLink = child.cloneNode("true");
                             duplicateLink.classList.remove("below");
-                            duplicateLink.style.display = "block";
+                            duplicateLink.style.display = "flexbox";
 
                             newLi.appendChild(duplicateLink);
                             newLi.style.backgroundColor = magenta;
