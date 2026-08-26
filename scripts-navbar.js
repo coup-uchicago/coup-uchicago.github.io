@@ -1,6 +1,5 @@
-button = document.getElementById("hamburger");
-menu = document.getElementById("menu-options");
-const currEvent = document.getElementById("current-event");
+const button = document.getElementById("hamburger");
+const menu = document.getElementById("menu-options");
 var windowWidth;
 var controller; //AbortController object used to remove event listeners later
 
@@ -50,10 +49,32 @@ function closeDropdown(li = null) { //does not toggle open
 window.addEventListener("resize", changeNavbar);
 
 window.addEventListener("load", () => {
-    dropdownNoHover();
-    windowWidth = window.innerWidth;
+    //adds links to the navbar
+    var periods = "..";
+    if (document.title == "COUP Home"){
+        periods = ".";
+    } 
+    menu.innerHTML = `
+    <li class="nav-item">
+        <span>Events</span>
+        <a class="below" href="${periods}/events/bnr.html">Boos n Ribs</a>
+        <a class="below" href="${periods}/events/kuvia.html">Kuvia</a>
+        <a class ="below" href="${periods}/events/snowball.html">Snowball</a>
+        <a class="below" href="${periods}/events/sb.html">Summer Breeze</a>
+        <a class="below two-lines" href="${periods}/events/uncommon-nights.html">Uncommon Nights & Pop-Up Picnic</a>
+    </li>
+    <li class="nav-item"><a href="${periods}/events/current-event.html" id="current-event">${currEventText}</a></li>
+    <li class="nav-item">
+        <span>Stay in touch</span>
+        <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Instagram</a>
+        <a class="below" href="https://lists.uchicago.edu/web/info/coup" target="_blank">Listhost</a>
+        <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Contact Us</a>
+    </li>
+    <li class="nav-item"><a href="https://www.instagram.com/uchicago_coup/" target="_blank">Join Us</a></li>
+    `;
 
-    currEvent.innerText = currEventText;
+    dropdownNoHover();  //sets behavior for devices with no hover
+    windowWidth = window.innerWidth;
 });
 
 //click hamburger button (if collapsed)
@@ -90,7 +111,7 @@ function dropdownNoHover() {
                         li.classList.remove("open");
                     } else {
                         //close previously opened dropdowns (untested)
-                        /*const navItems = document.querySelectorAll(".nav-item");
+                        const navItems = document.querySelectorAll(".nav-item");
                         navItems.forEach((navItem) => {
                             if (navItem.classList.contains("open")){
                                 navItem.style.backgroundColor = orange;
@@ -101,7 +122,7 @@ function dropdownNoHover() {
                         const activeDropdown = document.querySelectorAll(".dropdown-active");
                         activeDropdown.forEach((item) => {
                             item.remove();
-                        });*/
+                        });
                         li.classList.add("open");
                     }
 
@@ -148,7 +169,7 @@ function dropdownNoHover() {
                         li.classList.remove("open");
                     } else {
                         //close previously opened dropdowns (untested)
-                        /*const navItems = document.querySelectorAll(".nav-item");
+                        const navItems = document.querySelectorAll(".nav-item");
                         navItems.forEach((navItem) => {
                             if (navItem.classList.contains("open")){
                                 navItem.style.backgroundColor = orange;
@@ -159,7 +180,7 @@ function dropdownNoHover() {
                         const activeDropdown = document.querySelectorAll(".dropdown-active");
                         activeDropdown.forEach((item) => {
                             item.remove();
-                        });*/
+                        });
                         li.classList.add("open");
                     }
                 }, { signal });

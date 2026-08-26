@@ -20,9 +20,6 @@
 
 .text {
   text-align : left;
-  font-size : clamp(1rem, 2vh, 2rem);
-  width : 80%;
-  padding-left : 10%;
 }
 
 .center {
