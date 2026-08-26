@@ -110,7 +110,7 @@ function dropdownNoHover() {
                     if(li.classList.contains("open")){
                         li.classList.remove("open");
                     } else {
-                        //close previously opened dropdowns (untested)
+                        //close previously opened dropdowns
                         const navItems = document.querySelectorAll(".nav-item");
                         navItems.forEach((navItem) => {
                             if (navItem.classList.contains("open")){
@@ -168,7 +168,7 @@ function dropdownNoHover() {
                     if(li.classList.contains("open")){
                         li.classList.remove("open");
                     } else {
-                        //close previously opened dropdowns (untested)
+                        //close previously opened dropdowns
                         const navItems = document.querySelectorAll(".nav-item");
                         navItems.forEach((navItem) => {
                             if (navItem.classList.contains("open")){
