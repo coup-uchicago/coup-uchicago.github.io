@@ -35,6 +35,9 @@ header {
   height : 2em;
   align-items : center;
   justify-content : center;
+  a {
+    color : #990f4b;
+  }
 }
 
 nav {
@@ -106,7 +109,6 @@ nav {
 
 #logo-link  {
   position : absolute;
-  /*background-color : orange;*/
   width : var(--nav-height);
   height : var(--nav-height);
   cursor : pointer;
@@ -114,7 +116,7 @@ nav {
 }
 
 /*change appearance based on width */
-@media (width > 480px){
+@media (width >= calc(7vh + 48rem)){
   #logo-link {
     display : flex;
   }
@@ -143,7 +145,7 @@ nav {
         background-color: #990f4b;
         z-index: 90;
         .below {
-            display : block;
+            display : flex;
         }
     }
   }
@@ -161,7 +163,7 @@ nav {
   }
 }
 
-@media (width <= 480px){
+@media (width < calc(7vh + 48rem)){
   #logo-link {
     display : none;
   }
@@ -187,6 +189,11 @@ nav {
     a {
         text-decoration : none;
     }
+  }
+  @media(hover : hover){
+    .nav-item:hover {
+        cursor : pointer;
+    }
   }            
 }
 
@@ -204,7 +211,6 @@ nav {
 
 /* logo */
 #logo {
-  /*width : 200px;*/
   z-index : 90;
   position: relative;
   margin : 0;

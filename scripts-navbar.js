@@ -1,37 +1,44 @@
 const button = document.getElementById("hamburger");
 const menu = document.getElementById("menu-options");
-var windowWidth;
-var controller; //AbortController object used to remove event listeners later
+var oldWidth;   //old window.innerWidth (before resize)
+var controller; //AbortController object used to remove event listeners later (should hover status change -- untested)
 
 const orange = "#fe9a20";
 const magenta = "#990f4b";
 const currEventText = "Boos n Ribs 2026";
+const breakpoint = vhToPx(7) + remToPx(48);
+
+function vhToPx(vh){
+    return vh * (window.innerHeight / 100);
+}
+
+function remToPx(rem){
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
 
 function changeNavbar() {
-  if (window.innerWidth != windowWidth) {   //detect if there has actually been a change
-    if (window.innerWidth >= 480){
+  if (window.innerWidth != oldWidth) {   //detect if there has actually been a change
+    if (window.innerWidth >= breakpoint){
         menu.style.display = `flex`;
         button.style.display = `none`;
     } else {
         button.style.display = `flex`;
         menu.style.display = `none`;
     }
-    if ((window.innerWidth <= 480 && windowWidth > 480) || (window.innerWidth > 480 && windowWidth <= 480)){
+    if ((window.innerWidth <= breakpoint && oldWidth > breakpoint) || (window.innerWidth > breakpoint && oldWidth <= breakpoint)){  //change from hamburger to no hamburger
         try {
             controller.abort();
         } catch {}
-        dropdownNoHover();
+        setUpDropdownNoHover();
         closeDropdown();
-        const openDropdown = document.querySelector(".open");
-        if (openDropdown){
-            openDropdown.classList.remove("open");
-        }
     }
   } 
-  windowWidth = window.innerWidth;
+  oldWidth = window.innerWidth;
 }
+//resize navbar
+window.addEventListener("resize", changeNavbar);
 
-function closeDropdown(li = null) { //does not toggle open
+function closeDropdown(li = null) {
     if (li === null){
         li = document.querySelector(".open");
     }
@@ -42,11 +49,9 @@ function closeDropdown(li = null) { //does not toggle open
     try {   //will not work if li is still null (nothing open)
         li.style.backgroundColor = orange;
         li.style.zIndex = "auto";
+        li.classList.remove("open");
     } catch {}
 }
-
-//resize navbar
-window.addEventListener("resize", changeNavbar);
 
 window.addEventListener("load", () => {
     //adds links to the navbar
@@ -63,7 +68,7 @@ window.addEventListener("load", () => {
         <a class="below" href="${periods}/events/sb.html">Summer Breeze</a>
         <a class="below two-lines" href="${periods}/events/uncommon-nights.html">Uncommon Nights & Pop-Up Picnic</a>
     </li>
-    <li class="nav-item"><a href="${periods}/events/current-event.html" id="current-event">${currEventText}</a></li>
+    <li class="nav-item"><a href="${periods}/events/current-event.html">${currEventText}</a></li>
     <li class="nav-item">
         <span>Stay in touch</span>
         <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Instagram</a>
@@ -73,8 +78,8 @@ window.addEventListener("load", () => {
     <li class="nav-item"><a href="https://www.instagram.com/uchicago_coup/" target="_blank">Join Us</a></li>
     `;
 
-    dropdownNoHover();  //sets behavior for devices with no hover
-    windowWidth = window.innerWidth;
+    oldWidth = window.innerWidth;
+    setUpDropdownNoHover();  //sets behavior for devices with no hover and/or with hamburger apparent
 });
 
 //click hamburger button (if collapsed)
@@ -82,24 +87,20 @@ button.addEventListener("click", () => {
   if (menu.style.display == `flex`) {
     menu.style.display = `none`;
   } else {
-    const openedDropdown = document.querySelector(".open");
-    if (openedDropdown !== null){
-        closeDropdown(openedDropdown);
-        openedDropdown.classList.remove("open");
-    }
+    closeDropdown();
     menu.style.display = "flex";
   }
 });
 
 //if "events" clicked, opens dropdown (for devices with no hover)
-function dropdownNoHover() {
+function setUpDropdownNoHover() {
     canHover = window.matchMedia("(hover : hover)");
-    if(window.innerWidth <= 480){   //if hamburger apparent
+    controller = new AbortController();
+    const { signal } = controller;
+    if(window.innerWidth <= breakpoint){   //if hamburger apparent -- will need changing if breakpoint changes
         const navItems = document.querySelectorAll(".nav-item");
-        controller = new AbortController();
-        const { signal } = controller;
         navItems.forEach((navItem) => {
-            if(navItem.children.length > 1){
+            if(navItem.children.length > 1){    //if a dropdown
                 navItem.addEventListener("click", (event) => {
                     var li = event.target;  //the selected li
                     if (li.tagName == "SPAN"){
@@ -109,21 +110,11 @@ function dropdownNoHover() {
                     //toggle dropdown
                     if(li.classList.contains("open")){
                         li.classList.remove("open");
+                        li.style.backgroundColor = orange;
                     } else {
-                        //close previously opened dropdowns
-                        const navItems = document.querySelectorAll(".nav-item");
-                        navItems.forEach((navItem) => {
-                            if (navItem.classList.contains("open")){
-                                navItem.style.backgroundColor = orange;
-                                navItem.style.zIndex = "auto";
-                                navItem.classList.remove("open");
-                            }
-                        });
-                        const activeDropdown = document.querySelectorAll(".dropdown-active");
-                        activeDropdown.forEach((item) => {
-                            item.remove();
-                        });
+                        closeDropdown();
                         li.classList.add("open");
+                        li.style.backgroundColor = magenta;
                     }
 
                     const children = li.querySelectorAll(".below");
@@ -155,8 +146,6 @@ function dropdownNoHover() {
         });
     } else if (!canHover.matches) { //if hamburger apparent but a touchscreen
         const navItems = document.querySelectorAll(".nav-item");
-        controller = new AbortController();
-        const { signal } = controller;
         navItems.forEach((navItem) => {
             if(navItem.children.length > 1){
                 navItem.addEventListener("click", (event) => {
@@ -167,24 +156,26 @@ function dropdownNoHover() {
 
                     if(li.classList.contains("open")){
                         li.classList.remove("open");
+                        li.style.backgroundColor = orange;
                     } else {
-                        //close previously opened dropdowns
-                        const navItems = document.querySelectorAll(".nav-item");
-                        navItems.forEach((navItem) => {
-                            if (navItem.classList.contains("open")){
-                                navItem.style.backgroundColor = orange;
-                                navItem.style.zIndex = "auto";
-                                navItem.classList.remove("open");
-                            }
-                        });
-                        const activeDropdown = document.querySelectorAll(".dropdown-active");
-                        activeDropdown.forEach((item) => {
-                            item.remove();
-                        });
+                        closeDropdown();
                         li.classList.add("open");
+                        li.style.backgroundColor = magenta;
                     }
                 }, { signal });
             }
         });
+    }
+    if (window.innerWidth < breakpoint || !canHover.matches){  //if either of the above two conditions were true
+        document.addEventListener("click", (event) => {
+            if (!(event.target.classList.contains("nav-item") 
+                || event.target.parentElement.classList.contains("nav-item")
+                || event.target.classList.contains("hamburger-item"))) {  //if smth clicked that's not part of dropdown, then close dropdown
+                closeDropdown();
+                if (window.innerWidth < breakpoint){
+                    menu.style.display = "none";
+                }
+            }
+        }, { signal });
     }
 }
