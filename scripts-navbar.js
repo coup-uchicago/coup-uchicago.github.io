@@ -73,12 +73,13 @@ window.addEventListener("load", () => {
         <span>Stay in touch</span>
         <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Instagram</a>
         <a class="below" href="https://lists.uchicago.edu/web/info/coup" target="_blank">Listhost</a>
-        <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Contact Us</a>
+        <!-- <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Contact Us</a> -->
     </li>
-    <li class="nav-item"><a href="https://www.instagram.com/uchicago_coup/" target="_blank">Join Us</a></li>
+    <!-- <li class="nav-item"><a href="https://www.instagram.com/uchicago_coup/" target="_blank">Join Us</a></li> -->
     `;
 
     oldWidth = window.innerWidth;
+    setUpTapToClose();
     setUpDropdownNoHover();  //sets behavior for devices with no hover and/or with hamburger apparent
 });
 
@@ -91,6 +92,22 @@ button.addEventListener("click", () => {
     menu.style.display = "flex";
   }
 });
+
+function setUpTapToClose() {    //sets up event listener that closes dropdown on tap
+    canHover = window.matchMedia("(hover : hover)");
+    if (window.innerWidth < breakpoint || !canHover.matches){  //if hamburger apparent and/or touchscreen
+        document.addEventListener("click", (event) => {
+            if (!(event.target.classList.contains("nav-item") 
+                || event.target.parentElement.classList.contains("nav-item")
+                || event.target.classList.contains("hamburger-item"))) {  //if smth clicked that's not part of dropdown, then close dropdown
+                closeDropdown();
+                if (window.innerWidth < breakpoint){    
+                    menu.style.display = "none";
+                }
+            }
+        });
+    }
+}
 
 //if "events" clicked, opens dropdown (for devices with no hover)
 function setUpDropdownNoHover() {
@@ -165,17 +182,5 @@ function setUpDropdownNoHover() {
                 }, { signal });
             }
         });
-    }
-    if (window.innerWidth < breakpoint || !canHover.matches){  //if either of the above two conditions were true
-        document.addEventListener("click", (event) => {
-            if (!(event.target.classList.contains("nav-item") 
-                || event.target.parentElement.classList.contains("nav-item")
-                || event.target.classList.contains("hamburger-item"))) {  //if smth clicked that's not part of dropdown, then close dropdown
-                closeDropdown();
-                if (window.innerWidth < breakpoint){
-                    menu.style.display = "none";
-                }
-            }
-        }, { signal });
     }
 }
