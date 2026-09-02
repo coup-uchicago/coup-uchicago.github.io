@@ -1,0 +1,17 @@
+{
+    "Boos n Ribs.carousel1" : 
+    [
+        "./bnr-assets/bnr-2025.jpg",
+        "./bnr-assets/bnr-2024.jpg",
+        "./bnr-assets/bnr-2023.jpg",
+        "./bnr-assets/bnr-2022.jpg",
+        "./bnr-assets/bnr-2021.jpg",
+        "./bnr-assets/bnr-2016.jpg"
+    ],
+    "./bnr-assets/bnr-2025.jpg" : "poster of pumpkins, spiders, and skeletons",
+    "./bnr-assets/bnr-2024.jpg" : "poster of ghosts singing and dancing",
+    "./bnr-assets/bnr-2023.jpg" : "poster of ghosts and a witch",
+    "./bnr-assets/bnr-2022.jpg" : "poster of ghosts near houses",
+    "./bnr-assets/bnr-2021.jpg" : "poster of the moon and bats",
+    "./bnr-assets/bnr-2016.jpg" : "poster of the words 'boos n ribs'"
+}

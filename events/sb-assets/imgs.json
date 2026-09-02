@@ -1,0 +1,36 @@
+{
+    "Summer Breeze.carousel1" : 
+    [
+        "./sb-assets/sb-2026.png",
+        "./sb-assets/sb-2025.jpg",
+        "./sb-assets/sb-2024.jpg",
+        "./sb-assets/sb-2023.jpg",
+        "./sb-assets/sb-2022.jpg",
+        "./sb-assets/sb-2017.png",
+        "./sb-assets/sb-2015.jpg",
+        "./sb-assets/sb-2013.png",
+        "./sb-assets/sb-2012.png"
+    ],
+    "Summer Breeze.carousel2" :
+    [
+        "./sb-assets/coup-photo-2024.jpg",
+        "./sb-assets/food-truck-2024.jpg",
+        "./sb-assets/performance-2024.jpg",
+        "./sb-assets/coup-photo-2026.png",
+        "./sb-assets/coup-photo-2022.png"
+    ],
+    "./sb-assets/sb-2026.png" : "poster of a circus",
+    "./sb-assets/sb-2025.jpg" : "poster of a beach",
+    "./sb-assets/sb-2024.jpg" : "poster of a hammerhead shark",
+    "./sb-assets/sb-2023.jpg" : "poster of a shark in tropical waters",
+    "./sb-assets/sb-2022.jpg" : "poster of a shark and a beach chair",
+    "./sb-assets/sb-2017.png" : "poster of the sun",
+    "./sb-assets/sb-2015.jpg" : "poster of an elephant footprint",
+    "./sb-assets/sb-2013.png" : "Poster of a red and white circus tent",
+    "./sb-assets/sb-2012.png" : "poster of a frog at a carnival",
+    "./sb-assets/coup-photo-2024.jpg" : "COUP members standing in front of balloon letters that spell 'SB24'",
+     "./sb-assets/food-truck-2024.jpg" : "People being served from a food truck",
+     "./sb-assets/performance-2024.jpg" : "People performing on an outdoor stage",
+     "./sb-assets/coup-photo-2026.png" : "Outdoor selfie of the members of COUP",
+     "./sb-assets/coup-photo-2022.png" : "Members of COUP standing under a balloon arch"
+}

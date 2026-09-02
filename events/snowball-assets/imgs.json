@@ -1,0 +1,21 @@
+{
+    "Snowball.carousel1" : 
+    [
+        "./snowball-assets/snowball-2026.png",
+        "./snowball-assets/snowball-2025.jpg",
+        "./snowball-assets/snowball-2024.jpg",
+        "./snowball-assets/snowball-2023.jpg",
+        "./snowball-assets/snowball-2022.jpg"  
+    ],
+    "Snowball.carousel2" :
+    [
+        "./snowball-assets/venue.jpg",
+        "./snowball-assets/dj.JPG",
+        "./snowball-assets/dancing.JPG"
+    ],
+    "./snowball-assets/snowball-2026.png" : "purple poster of snow-laden trees",
+    "./snowball-assets/snowball-2025.jpg" : "poster of roses",
+    "./snowball-assets/snowball-2024.jpg" : "blue poster of snow-laden trees",
+    "./snowball-assets/snowball-2023.jpg" : "poster of a golden, leafy ring",
+    "./snowball-assets/snowball-2022.jpg" : "poster of blue flowers"
+}

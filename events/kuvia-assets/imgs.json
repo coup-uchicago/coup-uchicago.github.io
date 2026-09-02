@@ -1,0 +1,37 @@
+{
+    "Kuvia.carousel1" : 
+    [
+        "./kuvia-assets/kuvia-2026.png",
+        "./kuvia-assets/kuvia-2024.jpg",
+        "./kuvia-assets/kuvia-2023.jpg",
+        "./kuvia-assets/kuvia-2022.jpg",
+        "./kuvia-assets/kuvia-2013.png"
+    ], 
+
+    "Kuvia.carousel2" : 
+    [
+            "./kuvia-assets/posing-crown.jpg",
+            "./kuvia-assets/downward-dog.png",
+            "./kuvia-assets/palms-together.png",
+            "./kuvia-assets/karate.png",
+            "./kuvia-assets/rowing.png",
+            "./kuvia-assets/flags.png",
+            "./kuvia-assets/line-to-crown.png",
+            "./kuvia-assets/walking-to-point.jpg",
+            "./kuvia-assets/sun-salutation-outdoors.jpg"
+    ],
+    "./kuvia-assets/kuvia-2026.png" : "poster of a polar bear with flowers, ornaments, and a sun",
+    "./kuvia-assets/kuvia-2024.jpg" : "poster of a polar bear surrounded by leaves",
+    "./kuvia-assets/kuvia-2023.jpg" : "poster of a polar bear sitting in the sun",
+    "./kuvia-assets/kuvia-2022.jpg" : "poster of a polar bear looking at a computer screen",
+    "./kuvia-assets/kuvia-2013.png" : "poster that says 'Kuvia: Sexy and I Snow It'",
+    "./kuvia-assets/posing-crown.jpg" : "Kuvia participants posing for a photo in the Henry Crown Fieldhouse",
+    "./kuvia-assets/downward-dog.png" : "Kuvia participants doing the downwarddog as part of a sun salutation",
+    "./kuvia-assets/palms-together.png" : "Kuvia participants putting their arms to the sky as part of a sun salutation",
+    "./kuvia-assets/karate.png" : "Kuvia participants doing martial arts",
+    "./kuvia-assets/rowing.png" : "Kuvia participants using rowing machines",
+    "./kuvia-assets/flags.png" : "Kuvia participants doing an exercise with large flags",
+    "./kuvia-assets/line-to-crown.png" : "Kuvia participants lining up to enter Henry Crown Fieldhouse",
+    "./kuvia-assets/walking-to-point.jpg" : "Kuvia participants walking to Promontory Point",
+    "./kuvia-assets/sun-salutation-outdoors.jpg" : "Kuvia participants doing a sun salutation at Promontory Point"
+}
