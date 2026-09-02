@@ -68,7 +68,7 @@ window.addEventListener("load", () => {
         <a class="below" href="${periods}/events/sb.html">Summer Breeze</a>
         <a class="below two-lines" href="${periods}/events/uncommon-nights.html">Uncommon Nights & Pop-Up Picnic</a>
     </li>
-    <li class="nav-item"><a href="${periods}/events/current-event.html">${currEventText}</a></li>
+    <!-- <li class="nav-item"><a href="${periods}/events/current-event.html">${currEventText}</a></li> -->
     <li class="nav-item">
         <span>Stay in touch</span>
         <a class="below" href="https://www.instagram.com/uchicago_coup/" target="_blank">Instagram</a>
