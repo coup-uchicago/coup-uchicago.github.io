@@ -19,13 +19,8 @@ directories.set("Summer Breeze", "sb-assets");
 directories.set("Uncommon Nights & Pop-Up Picnic", "uncommon-nights-assets");
 
 async function getImgs() {  //gets image paths and alt text for images
-  const requestURL =
-    `./${directories.get(document.title)}/imgs.json`;
-  const request = new Request(requestURL);
-
-  const response = await fetch(request);
+  const response = await fetch(`./${directories.get(document.title)}/imgs.json`);
   return await response.json();
-
 }
 
 const imgs = new Map(Object.entries(await getImgs()))
